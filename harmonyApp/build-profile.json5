@@ -1,6 +1,20 @@
 {
   "app": {
-    "signingConfigs": [],
+    "signingConfigs": [
+      {
+        "name": "default",
+        "type": "HarmonyOS",
+        "material": {
+          "certpath": "/Users/admin/.ohos/config/default_harmonyApp_gjS5GIa0nSzfkKFDnmeJfy6ufYrlQT7o-8WSz3zw4o8=.cer",
+          "keyAlias": "debugKey",
+          "keyPassword": "0000001B8DCC76F566D75C1E8D148BA9D45E965CACDE497645F4158371289D1E299629534DEC993E6C193D",
+          "profile": "/Users/admin/.ohos/config/default_harmonyApp_gjS5GIa0nSzfkKFDnmeJfy6ufYrlQT7o-8WSz3zw4o8=.p7b",
+          "signAlg": "SHA256withECDSA",
+          "storeFile": "/Users/admin/.ohos/config/default_harmonyApp_gjS5GIa0nSzfkKFDnmeJfy6ufYrlQT7o-8WSz3zw4o8=.p12",
+          "storePassword": "0000001B6C5D71F8C990540BFE905933D087F34E40FF845A852A812F4B7A30D8A05A108220256B710BC963"
+        }
+      }
+    ],
     "products": [
       {
         "name": "default",
@@ -36,6 +50,14 @@
           ]
         }
       ]
+    },
+    {
+      "name": "base",
+      "srcPath": "./commons/base"
+    },
+    {
+      "name": "adaptive_video_component",
+      "srcPath": "./features/adaptive_video_component"
     }
   ]
 }

@@ -1,0 +1,36 @@
+{
+  "float": [
+    {
+      "name": "page_text_font_size",
+      "value": "50fp"
+    },
+    {
+      "name": "width_middle",
+      "value": "33vp"
+    },
+    {
+      "name": "font_size_small",
+      "value": "14vp"
+    },
+    {
+      "name": "font_size_middle",
+      "value": "16vp"
+    },
+    {
+      "name": "width_large",
+      "value": "80vp"
+    },
+    {
+      "name": "width_ultra",
+      "value": "260vp"
+    },
+    {
+      "name": "height_middle",
+      "value": "22vp"
+    },
+    {
+      "name": "height_plus",
+      "value": "44vp"
+    }
+  ]
+}

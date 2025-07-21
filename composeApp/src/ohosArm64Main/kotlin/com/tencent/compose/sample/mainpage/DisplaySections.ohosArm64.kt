@@ -21,6 +21,8 @@ import com.tencent.compose.sample.InteropListNested
 import com.tencent.compose.sample.InteropListSimple
 import com.tencent.compose.sample.InteropRenderOrder
 import com.tencent.compose.sample.InteropTextInput
+import com.tencent.compose.sample.InteropVideo
+import com.tencent.compose.sample.InteropWebView
 import com.tencent.compose.sample.data.DisplayItem
 import composesample.composeapp.generated.resources.Res
 import composesample.composeapp.generated.resources.interop_list
@@ -35,6 +37,8 @@ internal actual fun platformSections(): List<DisplayItem> {
         DisplayItem("混排层级", Res.drawable.layers) { InteropRenderOrder() },
         DisplayItem("混排滑动", Res.drawable.interop_list) { InteropListSimple() },
         DisplayItem("混排嵌滑", Res.drawable.interop_nested_scroll) { InteropListNested() },
-        DisplayItem("混排状态", Res.drawable.interop_state) { InteropTextInput() }
+        DisplayItem("混排状态", Res.drawable.interop_state) { InteropTextInput() },
+        DisplayItem("短视频", Res.drawable.interop_state) { InteropVideo() },
+        DisplayItem("WebView", Res.drawable.interop_state) { InteropWebView() }
     )
 }

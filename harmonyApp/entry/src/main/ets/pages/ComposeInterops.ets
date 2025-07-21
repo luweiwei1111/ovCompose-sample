@@ -16,7 +16,8 @@
  */
 
 import { promptAction } from '@kit.ArkUI';
-
+import { HomePage } from 'adaptive_video_component';
+import { H5DetailPage } from './H5DetailPage';
 
 interface ButtonArgs {
   text: string
@@ -239,5 +240,44 @@ export struct horizontalList {
         }
       }.scrollable(ScrollDirection.Horizontal).height('40%').width('100%')
     }
+  }
+}
+
+
+@Builder
+export function videoBuilder(args?: object) {
+  video()
+}
+
+@Component
+export struct video {
+  build() {
+    Row() {
+      // Column() {
+      //   Video({
+      //     src: $rawfile('tiny.mp4')
+      //   })
+      //     .autoPlay(true)
+      //     .loop(true)
+      // }
+      // .width('100%')
+      HomePage()
+    }
+    .height('100%')
+  }
+}
+
+@Builder
+export function webViewBuilder(args?: object) {
+  webView()
+}
+
+@Component
+export struct webView {
+  build() {
+    Row() {
+      H5DetailPage()
+    }
+    .height('100%')
   }
 }

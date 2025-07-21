@@ -27,6 +27,8 @@ import {
   layerBuilder,
   verticalListBuilder,
   horizontalListBuilder,
+  videoBuilder,
+  webViewBuilder,
 } from './ComposeInterops';
 
 export function registerComposeInteropBuilders() {
@@ -38,4 +40,6 @@ export function registerComposeInteropBuilders() {
   registerComposeInteropBuilder('text', textBuilder)
   registerComposeInteropBuilder('verticalList', verticalListBuilder)
   registerComposeInteropBuilder('horizontalList', horizontalListBuilder)
+  registerComposeInteropBuilder('video', videoBuilder)
+  registerComposeInteropBuilder('webView', webViewBuilder)
 }
