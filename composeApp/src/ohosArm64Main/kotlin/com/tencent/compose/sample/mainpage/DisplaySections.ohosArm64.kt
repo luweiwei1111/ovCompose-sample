@@ -17,6 +17,7 @@
 
 package com.tencent.compose.sample.mainpage
 
+import com.tencent.compose.sample.InteropCAPIView
 import com.tencent.compose.sample.InteropListNested
 import com.tencent.compose.sample.InteropListSimple
 import com.tencent.compose.sample.InteropRenderOrder
@@ -39,6 +40,7 @@ internal actual fun platformSections(): List<DisplayItem> {
         DisplayItem("混排嵌滑", Res.drawable.interop_nested_scroll) { InteropListNested() },
         DisplayItem("混排状态", Res.drawable.interop_state) { InteropTextInput() },
         DisplayItem("短视频", Res.drawable.interop_state) { InteropVideo() },
-        DisplayItem("WebView", Res.drawable.interop_state) { InteropWebView() }
+        DisplayItem("WebView", Res.drawable.interop_state) { InteropWebView() },
+        DisplayItem("CAPIView", Res.drawable.interop_state) { InteropCAPIView() }
     )
 }

@@ -18,6 +18,7 @@
 import { promptAction } from '@kit.ArkUI';
 import { HomePage } from 'adaptive_video_component';
 import { H5DetailPage } from './H5DetailPage';
+import { MyCApiView } from './MyCApiView';
 
 interface ButtonArgs {
   text: string
@@ -277,6 +278,21 @@ export struct webView {
   build() {
     Row() {
       H5DetailPage()
+    }
+    .height('100%')
+  }
+}
+
+@Builder
+export function cApiViewBuilder(args?: object) {
+  cApiView()
+}
+
+@Component
+export struct cApiView {
+  build() {
+    Row() {
+      MyCApiView()
     }
     .height('100%')
   }

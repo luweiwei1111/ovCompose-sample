@@ -18,6 +18,10 @@
 #include "libkn_api.h"
 #include "napi/native_api.h"
 #include <rawfile/raw_file_manager.h>
+#include <hilog/log.h>
+#include "manager.h"
+
+namespace NativeXComponentSample {
 
 static napi_value Add(napi_env env, napi_callback_info info)
 {
@@ -65,11 +69,20 @@ static napi_value InitResourceManager(napi_env env, napi_callback_info info) {
 
 EXTERN_C_START
 static napi_value Init(napi_env env, napi_value exports) {
+    OH_LOG_Print(LOG_APP, LOG_INFO, LOG_PRINT_DOMAIN, "Init", "TextXXX init.cpp Init begins");
+    if ((env == nullptr) || (exports == nullptr)) {
+        OH_LOG_Print(LOG_APP, LOG_INFO, LOG_PRINT_DOMAIN, "Init", "env or exports is null");
+        return nullptr;
+    }
+    
     androidx_compose_ui_arkui_init(env, exports);
     napi_property_descriptor desc[] = {
         {"add", nullptr, Add, nullptr, nullptr, nullptr, napi_default, nullptr},
         {"initResourceManager", nullptr, InitResourceManager, nullptr, nullptr, nullptr, napi_default, nullptr},
         {"MainArkUIViewController", nullptr, MainArkUIViewController, nullptr, nullptr, nullptr, napi_default, nullptr},
+        {"getContext", nullptr, Manager::GetContext, nullptr, nullptr, nullptr, napi_default, nullptr},
+        {"createNativeNode", nullptr, Manager::CreateNativeNode, nullptr, nullptr, nullptr, napi_default, nullptr},
+        {"updateNativeNode", nullptr, Manager::UpdateNativeNode, nullptr, nullptr, nullptr, napi_default, nullptr},
     };
     napi_define_properties(env, exports, sizeof(desc) / sizeof(desc[0]), desc);
     return exports;
@@ -90,3 +103,7 @@ extern "C" __attribute__((constructor)) void RegisterEntryModule(void)
 {
     napi_module_register(&demoModule);
 }
+
+}
+
+

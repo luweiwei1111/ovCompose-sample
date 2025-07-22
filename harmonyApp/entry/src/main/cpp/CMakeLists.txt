@@ -13,10 +13,27 @@ include_directories(${NATIVERENDER_ROOT_PATH}
 
 find_package(skikobridge)
 
-add_library(entry SHARED napi_init.cpp)
+add_library(entry SHARED container.cpp manager.cpp napi_init.cpp)
+
+find_library(
+    hilog-lib
+    hilog_ndk.z
+)
+
+find_library(
+    libace-lib
+    ace_ndk.z
+)
+
+find_library(
+    libnapi-lib
+    ace_napi.z
+)
+
 target_link_libraries(entry PUBLIC libace_napi.z.so)
 target_link_libraries(entry PUBLIC libdeviceinfo_ndk.z.so)
 target_link_libraries(entry PUBLIC librawfile.z.so)
 target_link_libraries(entry PUBLIC ${NATIVERENDER_ROOT_PATH}/../../../libs/arm64-v8a/libkn.so)
 target_link_libraries(entry PUBLIC skikobridge::skikobridge)
 target_link_libraries(entry PUBLIC ${EGL-lib} ${GLES-lib} ${hilog-lib} ${libace-lib} ${libnapi-lib} ${libuv-lib} libc++_shared.so)
+target_link_libraries(entry PUBLIC ${hilog-lib} ${libace-lib} ${libnapi-lib})
