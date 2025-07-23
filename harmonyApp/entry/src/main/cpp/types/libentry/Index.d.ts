@@ -25,3 +25,7 @@ export const MainArkUIViewController: () => ArkUIViewController
 export const initResourceManager: (resourceManager: resourceManager.ResourceManager) => number;
 
 export const createNativeNode: (nodeContent: NodeContent) => NodeContent;
+
+export const getString: () => string;
+
+export const getLargeString: () => string;

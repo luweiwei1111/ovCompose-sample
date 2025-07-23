@@ -17,6 +17,9 @@
 
 package com.tencent.compose.sample.mainpage
 
+import com.tencent.compose.sample.ArkNativeImage1500Page
+import com.tencent.compose.sample.ArkNativeText1500Page
+import com.tencent.compose.sample.ComposeImage2500Page
 import com.tencent.compose.sample.InteropCAPIView
 import com.tencent.compose.sample.InteropListNested
 import com.tencent.compose.sample.InteropListSimple
@@ -24,12 +27,15 @@ import com.tencent.compose.sample.InteropRenderOrder
 import com.tencent.compose.sample.InteropTextInput
 import com.tencent.compose.sample.InteropVideo
 import com.tencent.compose.sample.InteropWebView
+import com.tencent.compose.sample.ComposeText1500Page
 import com.tencent.compose.sample.data.DisplayItem
 import composesample.composeapp.generated.resources.Res
+import composesample.composeapp.generated.resources.image_cat
 import composesample.composeapp.generated.resources.interop_list
 import composesample.composeapp.generated.resources.interop_nested_scroll
 import composesample.composeapp.generated.resources.interop_state
 import composesample.composeapp.generated.resources.layers
+import composesample.composeapp.generated.resources.simple_text
 import org.jetbrains.compose.resources.ExperimentalResourceApi
 
 @OptIn(ExperimentalResourceApi::class)
@@ -41,6 +47,12 @@ internal actual fun platformSections(): List<DisplayItem> {
         DisplayItem("混排状态", Res.drawable.interop_state) { InteropTextInput() },
         DisplayItem("短视频", Res.drawable.interop_state) { InteropVideo() },
         DisplayItem("WebView", Res.drawable.interop_state) { InteropWebView() },
-        DisplayItem("CAPIView", Res.drawable.interop_state) { InteropCAPIView() }
+        DisplayItem("CAPIView", Res.drawable.interop_state) { InteropCAPIView() },
+        DisplayItem("compose 1500Text", Res.drawable.simple_text) { ComposeText1500Page() },
+        DisplayItem("compose 1500Image", Res.drawable.image_cat) { ComposeImage2500Page() },
+        DisplayItem("ArkNative 1500Text", Res.drawable.simple_text) { ArkNativeText1500Page() },
+        DisplayItem("ArkNative 1500Image", Res.drawable.image_cat) { ArkNativeImage1500Page() },
+        DisplayItem("CApi 1500Text", Res.drawable.simple_text) { ArkNativeText1500Page() },
+        DisplayItem("CApi 1500Image", Res.drawable.image_cat) { ArkNativeImage1500Page() }
     )
 }

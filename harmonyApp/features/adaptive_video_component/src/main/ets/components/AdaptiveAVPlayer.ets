@@ -30,6 +30,7 @@ import { common } from '@kit.AbilityKit';
 import { BreakpointRange, BreakpointRangeDatabase } from '@hadss/adaptive_video/src/main/ets/rotation/rule/BreakPoint';
 import { PCVideoControl } from './PCVideoControl';
 import { CommentPanel } from '../view/CommentPanel';
+import { MainArkUIViewController, getString, getLargeString } from 'libentry.so';
 
 const LOG_TAG = 'CustomAVPlayerComponent'
 const DOMAIN = 0x0000;
@@ -159,6 +160,9 @@ export struct AdaptiveAVPlayer {
             }
           })
       }
+      Text(getLargeString())
+        .fontColor(Color.Red)
+        .fontSize(10)
 
       Column() {
         if (this.showFullScreenBtn) {

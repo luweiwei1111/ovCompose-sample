@@ -16,7 +16,7 @@
  */
 
 import { Compose } from 'compose';
-import { MainArkUIViewController } from 'libentry.so';
+import { MainArkUIViewController, getString, getLargeString } from 'libentry.so';
 import { registerComposeInteropBuilders } from './ComposeSample';
 
 registerComposeInteropBuilders();
@@ -28,6 +28,8 @@ struct Index {
 
   onPageShow(): void {
     this.controller.onPageShow()
+    console.debug('lww', `GetNativeString:${getString()}`)
+    console.debug('lww', `GetNativeString:${getLargeString()}`)
   }
 
   onPageHide(): void {

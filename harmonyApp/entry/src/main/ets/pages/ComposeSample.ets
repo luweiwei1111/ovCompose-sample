@@ -30,6 +30,8 @@ import {
   videoBuilder,
   webViewBuilder,
   cApiViewBuilder,
+  textViewBuilder,
+  imageViewBuilder,
 } from './ComposeInterops';
 
 export function registerComposeInteropBuilders() {
@@ -44,4 +46,6 @@ export function registerComposeInteropBuilders() {
   registerComposeInteropBuilder('video', videoBuilder)
   registerComposeInteropBuilder('webView', webViewBuilder)
   registerComposeInteropBuilder('cApiView', cApiViewBuilder)
+  registerComposeInteropBuilder('textView', textViewBuilder)
+  registerComposeInteropBuilder('imageView', imageViewBuilder)
 }

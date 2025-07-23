@@ -66,10 +66,9 @@ export struct text {
   build() {
     Text(this.compose_args.id + " " + this.compose_args.text)
       .backgroundColor(this.compose_args.backgroundColor)
-      .width('100%')
-      .height('100%')
+      .fontColor(Color.Black)
       .borderRadius('5vp')
-      .onClick(e => {
+      .onClick(() => {
         console.log(`Text Clicked: ${JSON.stringify(this.compose_args)}`)
       })
   }
@@ -295,5 +294,79 @@ export struct cApiView {
       MyCApiView()
     }
     .height('100%')
+  }
+}
+
+@Builder
+export function textViewBuilder(args?: object) {
+  textView()
+}
+
+@Component
+export struct textView {
+  dataList: string[] = [];
+
+  aboutToAppear(): void {
+    for (let i = 0; i < 1500; i++) {
+      const data = `项目内容 ${i + 1}`
+      this.dataList.push(data)
+    }
+  }
+
+  build() {
+    Column() {
+      List() {
+        // 使用ForEach遍历数据列表
+        ForEach(this.dataList, (item: string, index: number) => {
+          ListItem() {
+            Text(`[${index}] ${item}`)
+              .fontSize(16)
+              .margin({ top: 5, bottom: 5 })
+              .width('90%')
+              .textAlign(TextAlign.Start)
+          }
+        }, (item: string) => item) // 使用内容作为key
+      }
+    }
+    .width('100%')
+    .height('100%')
+    .padding(10)
+  }
+}
+
+@Builder
+export function imageViewBuilder(args?: object) {
+  imageView()
+}
+
+@Component
+export struct imageView {
+  dataList: string[] = [];
+
+  aboutToAppear(): void {
+    for (let i = 0; i < 1500; i++) {
+      const data = `项目内容 ${i + 1}`
+      this.dataList.push(data)
+    }
+  }
+
+  build() {
+    Column() {
+      // 使用ForEach遍历数据列表
+      List() {
+        ForEach(this.dataList, (item: string, index: number) => {
+          ListItem() {
+            Image($r("app.media.image_cat"))
+              .padding(1)
+              .backgroundColor(Color.Yellow)
+              .width('100')
+              .height('100')
+          }
+        }, (item: string) => item) // 使用内容作为key
+      }
+    }
+    .width('100%')
+    .height('100%')
+    .padding(10)
   }
 }
