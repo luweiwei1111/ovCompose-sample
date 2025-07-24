@@ -46,9 +46,11 @@ export struct MyCApiView {
 
   build() {
     Column() {
-      buildNodeContent(new Params(this.insert, this.nodeContent))
+      Scroll() {
+        buildNodeContent(new Params(this.insert, this.nodeContent))
+      }
     }
-    .height('600px')
+    .height('100%')
     .width('100%')
     .justifyContent(FlexAlign.Start)
     .alignItems(HorizontalAlign.Center)

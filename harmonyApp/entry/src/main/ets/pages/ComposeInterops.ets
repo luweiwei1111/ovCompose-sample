@@ -17,6 +17,7 @@
 
 import { promptAction } from '@kit.ArkUI';
 import { HomePage } from 'adaptive_video_component';
+import { CApiStackView } from './CApiStackView';
 import { H5DetailPage } from './H5DetailPage';
 import { MyCApiView } from './MyCApiView';
 
@@ -368,5 +369,90 @@ export struct imageView {
     .width('100%')
     .height('100%')
     .padding(10)
+  }
+}
+
+@Builder
+export function stackViewBuilder(args?: object) {
+  stackView()
+}
+
+@Component
+export struct stackView {
+  dataList: string[] = [];
+
+  aboutToAppear(): void {
+    for (let i = 0; i < 1500; i++) {
+      const data = `项目内容 ${i + 1}`
+      this.dataList.push(data)
+    }
+  }
+
+  build() {
+    Column() {
+      // 使用ForEach遍历数据列表
+      List() {
+        ForEach(this.dataList, (item: string, index: number) => {
+          ListItem() {
+            Stack() {
+              Text("测试:" + index)
+                .fontSize(14)
+                .fontColor(Color.Red)
+            }
+          }
+        }, (item: string) => item) // 使用内容作为key
+      }
+    }
+    .width('100%')
+    .height('100%')
+    .padding(10)
+  }
+}
+
+@Builder
+export function cApiStackView1500Builder(args?: object) {
+  cApiStackView1500()
+}
+
+@Component
+export struct cApiStackView1500 {
+
+  build() {
+    Row() {
+      CApiStackView()
+    }
+    .height('100%')
+  }
+}
+
+@Builder
+export function cApiTextView1500Builder(args?: object) {
+  cApiTextView1500()
+}
+
+@Component
+export struct cApiTextView1500 {
+
+  build() {
+    Row() {
+      CApiStackView()
+    }
+    .height('100%')
+  }
+}
+
+@Builder
+export function cApiImageView1500Builder(args?: object) {
+  cApiImageStack1500()
+}
+
+@Component
+export struct cApiImageStack1500 {
+
+  build() {
+    Row() {
+      CApiStackView()
+    }
+    .height('100%')
   }
 }

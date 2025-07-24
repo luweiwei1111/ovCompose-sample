@@ -30,6 +30,9 @@ public:
     
     static napi_value GetContext(napi_env env, napi_callback_info info);
     static napi_value CreateNativeNode(napi_env env, napi_callback_info info);
+    static napi_value CreateNativeNodeStackView(napi_env env, napi_callback_info info);
+    static napi_value CreateNativeNodeTextView(napi_env env, napi_callback_info info);
+    static napi_value CreateNativeNodeImageView(napi_env env, napi_callback_info info);
     static napi_value UpdateNativeNode(napi_env env, napi_callback_info info);
     
     void SetNativeXComponent(std::string &id, OH_NativeXComponent *nativeXComponent);

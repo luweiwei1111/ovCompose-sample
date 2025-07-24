@@ -135,6 +135,9 @@ static napi_value Init(napi_env env, napi_value exports) {
         {"updateNativeNode", nullptr, Manager::UpdateNativeNode, nullptr, nullptr, nullptr, napi_default, nullptr},
         {"getString", nullptr, GetNativeString, nullptr, nullptr, nullptr, napi_default, nullptr},
         {"getLargeString", nullptr, GetLargeString, nullptr, nullptr, nullptr, napi_default, nullptr},
+        {"createNativeNodeStackView", nullptr, Manager::CreateNativeNodeStackView, nullptr, nullptr, nullptr, napi_default, nullptr},
+        {"createNativeNodeTextView", nullptr, Manager::CreateNativeNodeTextView, nullptr, nullptr, nullptr, napi_default, nullptr},
+        {"createNativeNodeImageView", nullptr, Manager::CreateNativeNodeImageView, nullptr, nullptr, nullptr, napi_default, nullptr},
     };
     napi_define_properties(env, exports, sizeof(desc) / sizeof(desc[0]), desc);
     return exports;

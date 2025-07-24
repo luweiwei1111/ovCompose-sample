@@ -30,7 +30,7 @@ import org.jetbrains.compose.resources.ExperimentalResourceApi
 
 @OptIn(ExperimentalResourceApi::class)
 @Composable
-internal fun ComposeImage2500Page() {
+internal fun ComposeImage1500Page() {
     val imageBitmap = rememberLocalImage(Res.drawable.image_cat)
 
     Column(

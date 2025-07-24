@@ -32,6 +32,10 @@ import {
   cApiViewBuilder,
   textViewBuilder,
   imageViewBuilder,
+  stackViewBuilder,
+  cApiStackView1500Builder,
+  cApiTextView1500Builder,
+  cApiImageView1500Builder,
 } from './ComposeInterops';
 
 export function registerComposeInteropBuilders() {
@@ -48,4 +52,8 @@ export function registerComposeInteropBuilders() {
   registerComposeInteropBuilder('cApiView', cApiViewBuilder)
   registerComposeInteropBuilder('textView', textViewBuilder)
   registerComposeInteropBuilder('imageView', imageViewBuilder)
+  registerComposeInteropBuilder('stackView', stackViewBuilder)
+  registerComposeInteropBuilder('cApiStackView1500', cApiStackView1500Builder)
+  registerComposeInteropBuilder('cApiTextView1500', cApiTextView1500Builder)
+  registerComposeInteropBuilder('cApiImageView1500', cApiImageView1500Builder)
 }

@@ -19,7 +19,11 @@ package com.tencent.compose.sample.mainpage
 
 import com.tencent.compose.sample.ArkNativeImage1500Page
 import com.tencent.compose.sample.ArkNativeText1500Page
-import com.tencent.compose.sample.ComposeImage2500Page
+import com.tencent.compose.sample.ArkNativeView1500Page
+import com.tencent.compose.sample.CApiImage1500Page
+import com.tencent.compose.sample.CApiText1500Page
+import com.tencent.compose.sample.CApiView1500Page
+import com.tencent.compose.sample.ComposeImage1500Page
 import com.tencent.compose.sample.InteropCAPIView
 import com.tencent.compose.sample.InteropListNested
 import com.tencent.compose.sample.InteropListSimple
@@ -28,6 +32,7 @@ import com.tencent.compose.sample.InteropTextInput
 import com.tencent.compose.sample.InteropVideo
 import com.tencent.compose.sample.InteropWebView
 import com.tencent.compose.sample.ComposeText1500Page
+import com.tencent.compose.sample.ComposeView1500Page
 import com.tencent.compose.sample.data.DisplayItem
 import composesample.composeapp.generated.resources.Res
 import composesample.composeapp.generated.resources.image_cat
@@ -48,11 +53,14 @@ internal actual fun platformSections(): List<DisplayItem> {
         DisplayItem("短视频", Res.drawable.interop_state) { InteropVideo() },
         DisplayItem("WebView", Res.drawable.interop_state) { InteropWebView() },
         DisplayItem("CAPIView", Res.drawable.interop_state) { InteropCAPIView() },
-        DisplayItem("compose 1500Text", Res.drawable.simple_text) { ComposeText1500Page() },
-        DisplayItem("compose 1500Image", Res.drawable.image_cat) { ComposeImage2500Page() },
-        DisplayItem("ArkNative 1500Text", Res.drawable.simple_text) { ArkNativeText1500Page() },
-        DisplayItem("ArkNative 1500Image", Res.drawable.image_cat) { ArkNativeImage1500Page() },
-        DisplayItem("CApi 1500Text", Res.drawable.simple_text) { ArkNativeText1500Page() },
-        DisplayItem("CApi 1500Image", Res.drawable.image_cat) { ArkNativeImage1500Page() }
+        DisplayItem("compose 1500View", Res.drawable.interop_state) { ComposeView1500Page() },
+        DisplayItem("compose 1500Text", Res.drawable.interop_state) { ComposeText1500Page() },
+        DisplayItem("compose 1500Image", Res.drawable.interop_state) { ComposeImage1500Page() },
+//        DisplayItem("ArkNative 1500View", Res.drawable.interop_state) { ArkNativeView1500Page() },
+//        DisplayItem("ArkNative 1500Text", Res.drawable.interop_state) { ArkNativeText1500Page() },
+//        DisplayItem("ArkNative 1500Image", Res.drawable.interop_state) { ArkNativeImage1500Page() },
+        DisplayItem("CApi 1500View", Res.drawable.interop_state) { CApiView1500Page() },
+        DisplayItem("CApi 1500Text", Res.drawable.interop_state) { CApiText1500Page() },
+        DisplayItem("CApi 1500Image", Res.drawable.interop_state) { CApiImage1500Page() },
     )
 }
