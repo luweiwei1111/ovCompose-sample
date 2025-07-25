@@ -29,7 +29,7 @@ function buildNodeContent(params: Params) {
 
 @Entry
 @Component
-export struct CApiStackView {
+export struct CApiTextView {
   @State insert: boolean = true;
   private nodeContent = new MyNodeContent();
   @State @Watch('watchContent') controlContent: boolean = true;

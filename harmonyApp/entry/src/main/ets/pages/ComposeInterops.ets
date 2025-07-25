@@ -17,7 +17,9 @@
 
 import { promptAction } from '@kit.ArkUI';
 import { HomePage } from 'adaptive_video_component';
+import { CApiImageView } from './CApiImageView';
 import { CApiStackView } from './CApiStackView';
+import { CApiTextView } from './CApiTextView';
 import { H5DetailPage } from './H5DetailPage';
 import { MyCApiView } from './MyCApiView';
 
@@ -435,7 +437,7 @@ export struct cApiTextView1500 {
 
   build() {
     Row() {
-      CApiStackView()
+      CApiTextView()
     }
     .height('100%')
   }
@@ -451,7 +453,7 @@ export struct cApiImageStack1500 {
 
   build() {
     Row() {
-      CApiStackView()
+      CApiImageView()
     }
     .height('100%')
   }

@@ -30,7 +30,7 @@ export const createNativeNodeStackView: (nodeContent: NodeContent) => number;
 
 export const createNativeNodeTextView: (nodeContent: NodeContent) => number;
 
-export const createNativeNodeImageView: (nodeContent: NodeContent) => number;
+export const createNativeNodeImageView: (nodeContent: NodeContent, imagePath: string) => number;
 
 export const getString: () => string;
 
