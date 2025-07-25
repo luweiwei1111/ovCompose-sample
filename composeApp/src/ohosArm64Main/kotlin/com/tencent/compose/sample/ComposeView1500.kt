@@ -32,19 +32,25 @@ import androidx.compose.foundation.border
 @OptIn(ExperimentalResourceApi::class)
 @Composable
 internal fun ComposeView1500Page() {
-    val imageBitmap = rememberLocalImage(Res.drawable.image_cat)
-
     Column(
         modifier = Modifier
-            .verticalScroll(rememberScrollState())
-            .fillMaxWidth()
+            .verticalScroll(rememberScrollState()) // 启用垂直滚动
+            .fillMaxWidth(),
+        horizontalAlignment = Alignment.CenterHorizontally // 水平居中所有子项
     ) {
+        // 创建1500个Box
         repeat(1500) { index ->
             Box(
                 modifier = Modifier
-                    .size(100.dp)
-                    .border(2.dp, Color.Red)
-            )
+                    .size(300.dp) // 设置宽高均为300dp
+                    .border(
+                        width = 2.dp, // 边框宽度
+                        color = Color.Red, // 边框颜色为红色
+                    )
+                    .padding(8.dp) // 添加一些间距，使边框更明显
+            ) {
+                // 内容为空，仅显示红色边框
+            }
         }
     }
 }

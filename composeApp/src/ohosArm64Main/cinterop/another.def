@@ -1,0 +1,2 @@
+package = platform.ffi
+headers = test_ffi.h

@@ -24,6 +24,7 @@ import com.tencent.compose.sample.CApiImage1500Page
 import com.tencent.compose.sample.CApiText1500Page
 import com.tencent.compose.sample.CApiView1500Page
 import com.tencent.compose.sample.ComposeImage1500Page
+import com.tencent.compose.sample.ComposeLongStringPage
 import com.tencent.compose.sample.InteropCAPIView
 import com.tencent.compose.sample.InteropListNested
 import com.tencent.compose.sample.InteropListSimple
@@ -32,6 +33,7 @@ import com.tencent.compose.sample.InteropTextInput
 import com.tencent.compose.sample.InteropVideo
 import com.tencent.compose.sample.InteropWebView
 import com.tencent.compose.sample.ComposeText1500Page
+import com.tencent.compose.sample.ComposeToCPage
 import com.tencent.compose.sample.ComposeView1500Page
 import com.tencent.compose.sample.data.DisplayItem
 import composesample.composeapp.generated.resources.Res
@@ -62,5 +64,7 @@ internal actual fun platformSections(): List<DisplayItem> {
         DisplayItem("CApi 1500View", Res.drawable.interop_state) { CApiView1500Page() },
         DisplayItem("CApi 1500Text", Res.drawable.interop_state) { CApiText1500Page() },
         DisplayItem("CApi 1500Image", Res.drawable.interop_state) { CApiImage1500Page() },
-    )
+        DisplayItem("long string", Res.drawable.interop_state) { ComposeLongStringPage() },
+        DisplayItem("Kotlin to C", Res.drawable.interop_state) { ComposeToCPage() },
+        )
 }

@@ -1,0 +1,37 @@
+package com.tencent.compose.sample
+
+import androidx.compose.material.Button
+import androidx.compose.material.Text
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.napi.js
+import kotlinx.cinterop.ExperimentalForeignApi
+import androidx.compose.material.Text
+import androidx.compose.ui.Alignment
+import androidx.compose.runtime.*
+import platform.resource.com_tencent_kuikly_CurrentTimestamp
+import platform.resource.com_compose_LongString
+import platform.ffi.callHello
+
+@OptIn(ExperimentalForeignApi::class)
+@Composable
+internal fun ComposeLongStringPage() {
+    var result by remember { mutableStateOf("结果将显示在这里") }
+
+    Column(
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        Button(onClick = {
+            for (i in 0..1000) {
+                com_compose_LongString("0123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789", 10000);
+            }
+            result = com_tencent_kuikly_CurrentTimestamp().toString()
+            var hello = callHello(123)
+        }) {Text("Click me") }
+
+        Text(text = result)
+    }
+}

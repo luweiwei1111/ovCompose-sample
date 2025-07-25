@@ -420,10 +420,11 @@ export function cApiStackView1500Builder(args?: object) {
 export struct cApiStackView1500 {
 
   build() {
-    Row() {
+    Column() {
       CApiStackView()
     }
-    .height('100%')
+    .width("100%")
+    .height("100%")
   }
 }
 

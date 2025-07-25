@@ -21,7 +21,7 @@ function buildNodeContent(params: Params) {
   Column() {
     ContentSlot(params.nodeContent)
   }
-  .height(200)
+  .height("100%")
   .onAppear(() => {
     console.log("TestXXX MyNodeContent.ets ContentSlot onAppear")
   })
@@ -52,7 +52,7 @@ export struct CApiStackView {
     }
     .height('100%')
     .width('100%')
-    .justifyContent(FlexAlign.Start)
+    .justifyContent(FlexAlign.Center)
     .alignItems(HorizontalAlign.Center)
   }
 }

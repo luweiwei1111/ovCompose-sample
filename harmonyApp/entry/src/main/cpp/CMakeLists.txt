@@ -13,7 +13,7 @@ include_directories(${NATIVERENDER_ROOT_PATH}
 
 find_package(skikobridge)
 
-add_library(entry SHARED container.cpp manager.cpp napi_init.cpp)
+add_library(entry SHARED test_ffi.cpp container.cpp manager.cpp napi_init.cpp)
 
 find_library(
     hilog-lib
@@ -37,3 +37,4 @@ target_link_libraries(entry PUBLIC ${NATIVERENDER_ROOT_PATH}/../../../libs/arm64
 target_link_libraries(entry PUBLIC skikobridge::skikobridge)
 target_link_libraries(entry PUBLIC ${EGL-lib} ${GLES-lib} ${hilog-lib} ${libace-lib} ${libnapi-lib} ${libuv-lib} libc++_shared.so)
 target_link_libraries(entry PUBLIC ${hilog-lib} ${libace-lib} ${libnapi-lib})
+target_link_libraries(entry PUBLIC libhitrace_ndk.z.so)

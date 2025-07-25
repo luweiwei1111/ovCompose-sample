@@ -24,7 +24,7 @@ function buildNodeContent(params: Params) {
   Column() {
     ContentSlot(params.nodeContent)
   }
-  .height(200)
+  .height('100%')
   .onAppear(() => {
     console.log("TestXXX MyNodeContent.ets ContentSlot onAppear")
   })

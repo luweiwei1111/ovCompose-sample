@@ -8,6 +8,7 @@
 #include <hilog/log.h>
 
 #include "manager.h"
+#include "HiTraceSystraceSection.h"
 
 ArkUI_NodeContentHandle nodeContentHandle_ = nullptr;
 
@@ -91,12 +92,6 @@ ArkUI_NodeHandle createStackViewExample() {
     // 创建纵向布局容器（Column）
     ArkUI_NodeHandle column = nodeAPI->createNode(ARKUI_NODE_COLUMN);
 
-    // 设置Column填满父容器
-//    ArkUI_AttributeItem fillParent = {value, 1};
-//    value[0].f32 = 1.0f; // 1.0表示100%比例
-//    nodeAPI->setAttribute(column, NODE_WIDTH, &fillParent);
-//    nodeAPI->setAttribute(column, NODE_HEIGHT, &fillParent);
-
     // 注册滚动事件
     nodeAPI->registerNodeEvent(scroll, NODE_SCROLL_EVENT_ON_SCROLL, 1, nullptr);
     auto onScroll = [](ArkUI_NodeEvent *event) {
@@ -111,30 +106,33 @@ ArkUI_NodeHandle createStackViewExample() {
         ArkUI_NodeHandle stack = nodeAPI->createNode(ARKUI_NODE_STACK);
 
         // 设置Stack宽度和高度
-        ArkUI_NumberValue stackWidth[] = {480};
+        ArkUI_NumberValue stackWidth[] = {300};
         ArkUI_AttributeItem widthItem = {stackWidth, 1};
         nodeAPI->setAttribute(stack, NODE_WIDTH, &widthItem);
 
-        ArkUI_NumberValue stackHeight[] = {100}; // 固定高度100
+        ArkUI_NumberValue stackHeight[] = {300}; // 固定高度100
         ArkUI_AttributeItem heightItem = {stackHeight, 1};
         nodeAPI->setAttribute(stack, NODE_HEIGHT, &heightItem);
 
-        // 设置固定背景色（黄色）
-        ArkUI_NumberValue bgValue[] = {0xFFFFFF00};
-        ArkUI_AttributeItem bgItem = {bgValue, 1};
-        nodeAPI->setAttribute(stack, NODE_BACKGROUND_COLOR, &bgItem);
-
-        // 创建Text并设置内容（唯一区别）
-        ArkUI_NodeHandle text = nodeAPI->createNode(ARKUI_NODE_TEXT);
-        std::string contentStr = "测试:" + std::to_string(i + 1);
-        ArkUI_AttributeItem content = {.string = contentStr.c_str()};
-        nodeAPI->setAttribute(text, NODE_TEXT_CONTENT, &content);
-
-        // 构建层级：Text添加到Stack
-        nodeAPI->addChild(stack, text);
+        // +++ 添加红色边框 +++
+        // 1. 设置边框宽度（四边统一为2单位）
+        ArkUI_NumberValue borderWidthValue[] = {2.0f};
+        ArkUI_AttributeItem borderWidthItem = {borderWidthValue, 1};
+        nodeAPI->setAttribute(stack, NODE_BORDER_WIDTH, &borderWidthItem);
+        
+        // 2. 设置边框颜色（红色，ARGB格式：0xFFFF0000）
+        ArkUI_NumberValue borderColorValue[] = {0xFFFF0000}; // 红色
+        ArkUI_AttributeItem borderColorItem = {borderColorValue, 1};
+        nodeAPI->setAttribute(stack, NODE_BORDER_COLOR, &borderColorItem);
+        
+        // 3. 设置边框样式为实线
+        ArkUI_NumberValue borderStyleValue[] = {{.i32 = ARKUI_BORDER_STYLE_SOLID}};
+        ArkUI_AttributeItem borderStyleItem = {borderStyleValue, 1};
+        nodeAPI->setAttribute(stack, NODE_BORDER_STYLE, &borderStyleItem);
 
         // 将Stack添加到Column（关键修改）
         nodeAPI->addChild(column, stack);
+        HiTraceSystraceSection s("#Compose::createStackViewExample::KeyToCPPList");
     }
 
     // 将Column添加到Scroll中
